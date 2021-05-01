@@ -1,5 +1,5 @@
 - [rss脚本](#rss脚本)
-  - [安装依赖](#安装依赖)
+  - [安装](#安装)
   - [填写配置信息](#填写配置信息)
     - [如何获取cookie](#如何获取cookie)
     - [如何获取authkey, torrent_pass](#如何获取authkey-torrent_pass)
@@ -11,7 +11,7 @@
 
 支持在rss时自动根据种子体积范围来智能使用令牌
 
-## 安装依赖
+## 安装
 本脚本仅支持python3，所以你首先需要安装一个python3的环境，这个怎么搞自行上网搜索，正确安装在之后你打开命令行输入
 ```
 python3 --version
@@ -27,6 +27,12 @@ sudo pip3 install bencode.py requests
 pip3 install bencode.py requests --user
 ```
 或者使用virtualenv等手段（请自行上网查阅）
+
+然后下载本脚本：
+```
+git clone https://github.com/qfishpear/fishrss_simple.git
+cd fishrss_simple
+```
 
 ## 填写配置信息
 

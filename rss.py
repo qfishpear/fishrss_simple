@@ -93,7 +93,7 @@ with open(CONFIG["downloaded_urls"], "r") as f:
 logging.info("{} torrents in rss result".format(len(tlist)))
 cnt = 0
 now = time.time()
-for t in tlist[:10]:
+for t in tlist:
     tid = t["torrentId"]
     dl_url_raw = "https://{}/torrents.php?action=download&id={}&authkey={}&torrent_pass={}".format(
         site_domain, tid, authkey, torrent_pass)
