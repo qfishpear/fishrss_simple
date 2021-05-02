@@ -7,7 +7,7 @@ CONFIG = {
     # 存储rss出来的种子的文件夹，此文件夹应为bt客户端的监控文件夹，最好是绝对路径：
     "torrent_dir": "./watch",
     # 存储rss过的种子链接的文件，最好是绝对路径：
-    "downloaded_urls": "./downloaded_urls.txt"
+    "downloaded_urls": "./downloaded_urls.txt",
     # 如果需要r海豚，请填写以下信息：
     "dic": {
         # cookie，从浏览器中复制，只需要cookie中的PHPSESSID和session两个字段
