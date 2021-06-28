@@ -17,12 +17,13 @@ FISH_HEADERS['User-Agent'] = "FishRSS"
 SITE_CONST = {
     "dic":{
         "domain": "dicmusic.club",
-        "source": "DICMusic",
     },
     "snake":{
         "domain": "snakepop.art",
-        "source": "Snakepop",
     },
+    "gpw":{
+        "domain": "greatposterwall.com",
+    }
 }
 
 def check_path(path, is_file=False, auto_create=False):
@@ -64,8 +65,8 @@ def get_name(raw):
     return info["name"]
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--site', required=True, choices=["dic", "snake"],
-                    help="rss的站点: 填dic或snake")
+parser.add_argument('--site', required=True, choices=SITE_CONST.keys(),
+                    help="rss的站点: 填dic/snake/gpw")
 parser.add_argument("--init", action="store_true", default=False,
                     help="如果加了此选项，则只记录rss到的历史但不保存到watch文件夹里")
 if len(sys.argv) == 1:
@@ -106,11 +107,12 @@ for t in tlist:
         dl_url = dl_url_raw
     logging.info("downloading .torrent file from {}".format(dl_url))
     if args.init:
-        logging.info("ignored")
+        logging.info("ignored because of initialization")
         with open(CONFIG["downloaded_urls"], "a") as f:
             f.write("{}\n".format(dl_url_raw))
         continue
     try:
+        # long timeout because some torrent file may be large
         resp = requests.get(dl_url, headers=FISH_HEADERS, timeout=120)
         raw = resp.content
         h = get_info_hash(raw)

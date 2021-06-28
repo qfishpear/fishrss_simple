@@ -24,7 +24,7 @@ CONFIG = {
     },
     # 如果需要r毒蛇，请填写以下信息：
     "snake": {
-        # cookie，从浏览器中复制，只需要cookie中的session个字段
+        # cookie，从浏览器中复制，只需要cookie中的session字段
         "cookies": {
             "session"  : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         },
@@ -35,4 +35,19 @@ CONFIG = {
         # 注意，如果令牌用完，本脚本就不会下载种子
         "token_thresh": (0, -1),
     },
+    # 如果需要r海豹，请填写以下信息：
+    "gpw": {
+        # cookie，从浏览器中复制，只需要cookie中的PHPSESSID和session两个字段
+        "cookies": {
+            "PHPSESSID": "xxxxxxxxxxxxxxxx",
+            "session"  : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        # authkey和torrentpass：你可以从任意一个你的种子的下载链接里获得，长度均为32个字符
+        "authkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "torrent_pass": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        # 体积在这个区间内时自动使用令牌，如果不想使用令牌请填一个非法的区间，比如(0,-1)
+        # 注意，如果令牌用完，本脚本就不会下载种子
+        "token_thresh": (0, -1),
+    },
+
 }
